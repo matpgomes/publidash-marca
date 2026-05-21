@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #FAF7F2;
+  --ink-1000: #0B0A14;
+  --violet-500: #6E56F8;
+  --violet-600: #5A42E0;
+  --violet-900: #1E1B4B;
+  --lime-300: #D4FF3D;
+  --coral-500: #FF7A45;
+  --surface-1: #1A1A1A;
+  --surface-2: #2A2A2A;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-ink: var(--ink-1000);
+  --color-violet: var(--violet-500);
+  --color-violet-600: var(--violet-600);
+  --color-violet-900: var(--violet-900);
+  --color-lime: var(--lime-300);
+  --color-coral: var(--coral-500);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --font-sans: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-display: 'Instrument Serif', serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink-1000);
+  color: var(--cream);
+  font-family: 'Geist', sans-serif;
+}
+
+.font-display {
+  font-family: 'Instrument Serif', serif;
+}
+
+.font-mono {
+  font-family: 'Geist Mono', monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink-1000);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 3px;
+}
+
+/* Counter animation helper */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
