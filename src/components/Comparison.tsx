@@ -50,38 +50,44 @@ const rows = [
 
 function CellIcon({ type }: { type: "good" | "bad" | "meh" }) {
   if (type === "good")
-    return <Check size={14} strokeWidth={2} className="text-green-600" />;
+    return <Check size={14} strokeWidth={2} className="text-success" />;
   if (type === "bad")
     return <X size={14} strokeWidth={2} className="text-coral-500" />;
-  return <Minus size={14} strokeWidth={2} className="text-text-muted" />;
+  return <Minus size={14} strokeWidth={2} className="text-ink-400" />;
 }
 
 export default function Comparison() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-surface-1">
+    <section className="py-20 md:py-24 px-6 bg-paper border-b border-ink-100">
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-16"
+          className="text-center mb-16"
         >
-          Compare e decida
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            Comparativo
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            Compare e decida
+          </h2>
+        </motion.div>
 
         <div className="overflow-x-auto">
           <table className="w-full min-w-[600px]">
             <thead>
               <tr>
-                <th className="text-left text-sm font-medium text-text-muted pb-4 pr-4 w-1/4" />
-                <th className="text-center text-sm font-medium text-text-muted pb-4 px-4 w-1/4">
+                <th className="text-left text-sm font-medium text-ink-400 pb-4 pr-4 w-1/4" />
+                <th className="text-center text-sm font-medium text-ink-400 pb-4 px-4 w-1/4">
                   Manual
                 </th>
-                <th className="text-center text-sm font-medium text-text-muted pb-4 px-4 w-1/4">
+                <th className="text-center text-sm font-medium text-ink-400 pb-4 px-4 w-1/4">
                   Agência
                 </th>
-                <th className="text-center text-sm font-medium text-text-primary pb-4 px-4 w-1/4 rounded-t-xl">
+                <th className="text-center text-sm font-medium text-ink-900 pb-4 px-4 w-1/4 rounded-t-[14px]">
                   <span className="inline-flex items-center gap-1.5 bg-violet-500 text-white text-xs font-medium px-3 py-1 rounded-full">
                     Publidash
                   </span>
@@ -96,15 +102,15 @@ export default function Comparison() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="border-t border-border"
+                  className="border-t border-ink-100"
                 >
-                  <td className="py-4 pr-4 text-sm font-medium text-text-primary">
+                  <td className="py-4 pr-4 text-sm font-medium text-ink-900">
                     {row.label}
                   </td>
                   <td className="py-4 px-4 text-center">
                     <div className="flex items-center justify-center gap-2">
                       <CellIcon type="bad" />
-                      <span className="text-sm text-text-muted">
+                      <span className="text-sm text-ink-400">
                         {row.manual}
                       </span>
                     </div>
@@ -112,7 +118,7 @@ export default function Comparison() {
                   <td className="py-4 px-4 text-center">
                     <div className="flex items-center justify-center gap-2">
                       <CellIcon type="meh" />
-                      <span className="text-sm text-text-muted">
+                      <span className="text-sm text-ink-400">
                         {row.agency}
                       </span>
                     </div>
@@ -120,7 +126,7 @@ export default function Comparison() {
                   <td className="py-4 px-4 text-center bg-violet-50">
                     <div className="flex items-center justify-center gap-2">
                       <CellIcon type="good" />
-                      <span className="text-sm text-text-primary font-medium">
+                      <span className="text-sm text-ink-900 font-medium">
                         {row.publidash}
                       </span>
                     </div>

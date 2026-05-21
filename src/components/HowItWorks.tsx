@@ -28,22 +28,28 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-20 md:py-28 px-6 bg-surface-1">
+    <section id="como-funciona" className="py-20 md:py-24 px-6 bg-paper border-b border-ink-100">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-20"
+          className="text-center mb-20"
         >
-          Do briefing ao Pix em 4 passos
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            Como Funciona
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            Do briefing ao Pix em 4 passos
+          </h2>
+        </motion.div>
 
         {/* Desktop: horizontal timeline */}
         <div className="hidden md:grid grid-cols-4 gap-0 relative">
           {/* Connector line */}
-          <div className="absolute top-8 left-[12.5%] right-[12.5%] h-px bg-border" />
+          <div className="absolute top-8 left-[12.5%] right-[12.5%] h-px bg-ink-100" />
 
           {steps.map((step, i) => {
             const Icon = step.icon;
@@ -63,13 +69,13 @@ export default function HowItWorks() {
                     className="text-violet-500"
                   />
                 </div>
-                <span className="font-mono text-xs text-text-muted mb-2">
+                <span className="font-mono text-xs text-ink-400 mb-2">
                   0{i + 1}
                 </span>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">
+                <h3 className="text-lg font-semibold text-ink-900 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p className="text-sm text-ink-500 leading-relaxed">
                   {step.desc}
                 </p>
               </motion.div>
@@ -99,17 +105,17 @@ export default function HowItWorks() {
                     />
                   </div>
                   {i < 3 && (
-                    <div className="w-px flex-1 bg-border mt-2" />
+                    <div className="w-px flex-1 bg-ink-100 mt-2" />
                   )}
                 </div>
                 <div className="pb-8">
-                  <span className="font-mono text-xs text-text-muted">
+                  <span className="font-mono text-xs text-ink-400">
                     0{i + 1}
                   </span>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2">
+                  <h3 className="text-lg font-semibold text-ink-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">
+                  <p className="text-sm text-ink-500 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -127,7 +133,7 @@ export default function HowItWorks() {
         >
           <a
             href="#cta"
-            className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-600 text-white font-medium px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/25"
+            className="inline-flex items-center gap-2 h-12 px-6 bg-violet-500 hover:bg-violet-600 text-white font-sans font-medium text-sm rounded-[10px] hover:-translate-y-px hover:shadow-brand transition-all duration-150"
           >
             Criar minha primeira campanha
             <ArrowRight size={18} strokeWidth={1.5} />

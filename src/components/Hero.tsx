@@ -21,14 +21,14 @@ function CreatorCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5 }}
-      className="bg-surface-1 rounded-xl border border-border p-4 flex items-start gap-3"
+      className="bg-paper rounded-[14px] border border-ink-100 p-4 flex items-start gap-3"
     >
       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-coral-500 shrink-0" />
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-text-primary">{name}</p>
-            <p className="text-xs text-text-muted">{handle}</p>
+            <p className="text-sm font-medium text-ink-900">{name}</p>
+            <p className="text-xs text-ink-400">{handle}</p>
           </div>
           <span className="font-mono text-sm font-bold text-violet-500">
             {match}%
@@ -38,7 +38,7 @@ function CreatorCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] px-2 py-0.5 rounded-full bg-violet-50 text-text-secondary"
+              className="text-[10px] px-2 py-0.5 rounded-full bg-violet-50 text-ink-500"
             >
               {tag}
             </span>
@@ -51,18 +51,29 @@ function CreatorCard({
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-surface-1">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-paper border-b border-ink-100">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-transparent to-lime-50/30" />
 
-      <div className="relative w-full max-w-7xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-[2] w-full max-w-7xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: Copy */}
         <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center gap-3 mb-6">
+              <span className="w-6 h-px bg-ink-500" />
+              Para Marcas
+            </p>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl lg:text-[80px] leading-[1.05] tracking-tight text-text-primary"
+            className="font-display text-5xl md:text-7xl lg:text-[80px] leading-[1.05] tracking-tight text-ink-900"
           >
             Encontre o creator certo em{" "}
             <em className="text-violet-500">segundos</em>, não em
@@ -73,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-text-secondary max-w-xl leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-ink-500 max-w-xl leading-relaxed"
           >
             Descreva o que você precisa em linguagem natural. A IA Lia analisa
             milhares de perfis e te entrega os creators que mais combinam com
@@ -88,14 +99,14 @@ export default function Hero() {
           >
             <a
               href="#cta"
-              className="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-600 text-white font-medium text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/25"
+              className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-violet-500 hover:bg-violet-600 text-white font-sans font-medium text-sm rounded-[10px] hover:-translate-y-px hover:shadow-brand transition-all duration-150"
             >
               Criar minha primeira campanha
               <ArrowRight size={18} strokeWidth={1.5} />
             </a>
             <a
               href="#como-funciona"
-              className="inline-flex items-center justify-center gap-2 border border-border text-text-primary font-medium text-base px-8 py-4 rounded-lg transition-all hover:bg-violet-50"
+              className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-paper text-ink-900 font-sans font-medium text-sm rounded-[10px] border border-ink-200 hover:bg-shell transition-all duration-150"
             >
               Ver como funciona
             </a>
@@ -105,7 +116,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="mt-4 text-sm text-text-muted"
+            className="mt-4 text-sm text-ink-400"
           >
             Sem mensalidade. Pague só quando fechar um acordo.
           </motion.p>
@@ -116,19 +127,19 @@ export default function Hero() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-background rounded-2xl border border-border p-6 shadow-sm"
+          className="bg-cream rounded-[14px] border border-ink-100 p-6 shadow-sm"
         >
           {/* Header */}
           <div className="flex items-center gap-2 mb-4">
             <div className="w-2 h-2 rounded-full bg-lime-400" />
-            <span className="text-xs font-mono text-text-muted">
+            <span className="text-xs font-mono text-ink-400">
               Lia AI — Resultados do matchmaking
             </span>
           </div>
 
           {/* Search prompt */}
-          <div className="bg-surface-2 rounded-lg p-3 mb-4 border border-border-subtle">
-            <p className="text-sm text-text-secondary">
+          <div className="bg-violet-50 rounded-[10px] p-3 mb-4 border border-ink-50">
+            <p className="text-sm text-ink-500">
               &quot;Preciso de creators de skincare com vibe autêntica, audiência
               feminina 25-34 do Sudeste&quot;
             </p>
@@ -160,8 +171,8 @@ export default function Hero() {
           </div>
 
           {/* Footer */}
-          <div className="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-            <span className="text-xs text-text-muted">
+          <div className="mt-4 pt-3 border-t border-ink-50 flex items-center justify-between">
+            <span className="text-xs text-ink-400">
               3 de 47 creators compatíveis
             </span>
             <span className="text-xs font-mono text-violet-500">

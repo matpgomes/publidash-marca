@@ -40,19 +40,19 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className="border-b border-border"
+      className="border-b border-ink-100"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="text-base font-medium text-text-primary pr-4 group-hover:text-violet-500 transition-colors">
+        <span className="text-base font-medium text-ink-900 pr-4 group-hover:text-violet-500 transition-colors">
           {q}
         </span>
         <ChevronDown
           size={18}
           strokeWidth={1.5}
-          className={`text-text-muted shrink-0 transition-transform duration-300 ${
+          className={`text-ink-400 shrink-0 transition-transform duration-300 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -66,7 +66,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-text-secondary leading-relaxed pr-8">
+            <p className="pb-5 text-sm text-ink-500 leading-relaxed pr-8">
               {a}
             </p>
           </motion.div>
@@ -78,17 +78,23 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQ() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-surface-1">
+    <section className="py-20 md:py-24 px-6 bg-paper border-b border-ink-100">
       <div className="max-w-2xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-12"
+          className="text-center mb-12"
         >
-          Perguntas frequentes
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            FAQ
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            Perguntas frequentes
+          </h2>
+        </motion.div>
 
         <div>
           {faqs.map((faq, i) => (

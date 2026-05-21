@@ -26,8 +26,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased bg-background text-text-primary min-h-full flex flex-col">
+      <body className="font-sans antialiased bg-cream text-ink-900 min-h-full flex flex-col">
         {children}
+        <div className="grain" />
       </body>
     </html>
   );

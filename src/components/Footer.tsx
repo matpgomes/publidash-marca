@@ -2,31 +2,31 @@
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-12 px-6 bg-surface-1">
+    <footer className="border-t border-ink-100 py-12 px-6 bg-paper">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div>
-            <span className="font-serif text-xl text-text-primary">
+            <span className="font-display text-xl text-ink-900">
               Publidash
             </span>
           </div>
 
           {/* Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
-            <a href="#" className="hover:text-text-primary transition-colors">
+          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-ink-400">
+            <a href="#" className="hover:text-ink-900 transition-colors">
               Sobre
             </a>
-            <a href="#" className="hover:text-text-primary transition-colors">
+            <a href="#" className="hover:text-ink-900 transition-colors">
               Termos de Uso
             </a>
-            <a href="#" className="hover:text-text-primary transition-colors">
+            <a href="#" className="hover:text-ink-900 transition-colors">
               Política de Privacidade
             </a>
-            <a href="#" className="hover:text-text-primary transition-colors">
+            <a href="#" className="hover:text-ink-900 transition-colors">
               Contato
             </a>
-            <a href="#" className="hover:text-text-primary transition-colors text-text-muted">
+            <a href="#" className="hover:text-ink-900 transition-colors text-ink-400">
               API (em breve)
             </a>
             <a
@@ -42,7 +42,7 @@ export default function Footer() {
             <a
               href="#"
               aria-label="Instagram"
-              className="text-text-muted hover:text-text-primary transition-colors"
+              className="text-ink-400 hover:text-ink-900 transition-colors"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -53,7 +53,7 @@ export default function Footer() {
             <a
               href="#"
               aria-label="LinkedIn"
-              className="text-text-muted hover:text-text-primary transition-colors"
+              className="text-ink-400 hover:text-ink-900 transition-colors"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -64,8 +64,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border-subtle text-center">
-          <p className="text-xs text-text-muted">
+        <div className="mt-8 pt-8 border-t border-ink-50 text-center">
+          <p className="text-xs text-ink-400">
             Publidash Tecnologia Ltda. Todos os direitos reservados.
           </p>
         </div>

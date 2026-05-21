@@ -1,36 +1,98 @@
 @import "tailwindcss";
 
-@theme {
-  --font-serif: 'Instrument Serif', serif;
-  --font-sans: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
-  --color-background: #FAFAFA;
-  --color-surface-1: #FFFFFF;
-  --color-surface-2: #F5F3FF;
-  --color-surface-3: #F0EDFF;
-  --color-text-primary: #1A1A2E;
-  --color-text-secondary: #4A4A68;
-  --color-text-muted: #8888A0;
-  --color-violet-50: #F5F3FF;
-  --color-violet-100: #EDE9FE;
-  --color-violet-500: #7C3AED;
-  --color-violet-600: #6D28D9;
+@theme inline {
+  /* Ink scale (warm near-blacks → off-whites) */
+  --color-ink-1000: #0B0A14;
+  --color-ink-900: #14132A;
+  --color-ink-800: #1F1D3A;
+  --color-ink-700: #312E55;
+  --color-ink-600: #4A4674;
+  --color-ink-500: #6B6790;
+  --color-ink-400: #908DAE;
+  --color-ink-300: #B3B0CC;
+  --color-ink-200: #D6D3E5;
+  --color-ink-100: #E8E6F2;
+  --color-ink-50: #F4F2FA;
+
+  /* Paper (warm whites) */
+  --color-paper: #FFFFFF;
+  --color-cream: #FAF7F2;
+  --color-shell: #F0EDE5;
+  --color-sand: #E8E2D3;
+
+  /* Violet (brand primary) */
+  --color-violet-50: #F1EEFF;
+  --color-violet-100: #DDD5FF;
+  --color-violet-200: #B9A8FF;
+  --color-violet-300: #9C84FF;
+  --color-violet-400: #8A6FFF;
+  --color-violet-500: #6E56F8;
+  --color-violet-600: #5840D6;
+  --color-violet-700: #4530A8;
+  --color-violet-800: #2E2174;
   --color-violet-900: #1E1B4B;
-  --color-lime-400: #A3E635;
-  --color-lime-50: #F7FEE7;
-  --color-coral-500: #F97316;
-  --color-border: #E5E5E5;
-  --color-border-subtle: #F0F0F0;
+
+  /* Lime (signal / success) */
+  --color-lime-50: #F6FFD9;
+  --color-lime-100: #EEFFA8;
+  --color-lime-200: #E3FF6E;
+  --color-lime-300: #D4FF3D;
+  --color-lime-400: #BCEA1F;
+  --color-lime-500: #9FCC10;
+
+  /* Coral (warmth, energy) */
+  --color-coral-100: #FFE2D3;
+  --color-coral-200: #FFC5A8;
+  --color-coral-300: #FFA47A;
+  --color-coral-400: #FF8B5C;
+  --color-coral-500: #FF7A45;
+  --color-coral-600: #E85F2A;
+
+  /* Semantic */
+  --color-success: #10B981;
+  --color-success-bg: #D1FAE5;
+  --color-warning: #F5A524;
+  --color-warning-bg: #FEF3C7;
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEE2E2;
+
+  /* Fonts */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(20, 19, 42, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(20, 19, 42, 0.06), 0 1px 2px -1px rgba(20, 19, 42, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(20, 19, 42, 0.08), 0 2px 4px -2px rgba(20, 19, 42, 0.04);
+  --shadow-lg: 0 12px 32px -8px rgba(20, 19, 42, 0.12), 0 4px 8px -4px rgba(20, 19, 42, 0.06);
+  --shadow-xl: 0 24px 64px -12px rgba(20, 19, 42, 0.18), 0 8px 16px -8px rgba(20, 19, 42, 0.08);
+  --shadow-brand: 0 12px 32px -8px rgba(110, 86, 248, 0.32);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
+  background: var(--color-cream);
+  color: var(--color-ink-900);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain texture overlay */
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.025; mix-blend-mode: multiply;
 }
 
 ::selection {
@@ -38,16 +100,7 @@ body {
   color: var(--color-violet-900);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-violet-500);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-ink-200); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-violet-500); }

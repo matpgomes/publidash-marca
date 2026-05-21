@@ -6,6 +6,7 @@ import LiaShowcase from "@/components/LiaShowcase";
 import FinancialSecurity from "@/components/FinancialSecurity";
 import Comparison from "@/components/Comparison";
 import MarketData from "@/components/MarketData";
+import Cases from "@/components/Cases";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <FinancialSecurity />
       <Comparison />
       <MarketData />
+      <Cases />
       <FAQ />
       <FinalCTA />
       <Footer />

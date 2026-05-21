@@ -20,17 +20,23 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section className="py-20 md:py-28 px-6 bg-background">
+    <section className="py-20 md:py-24 px-6 bg-cream border-b border-ink-100">
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-16"
+          className="text-center mb-16"
         >
-          Contratar creators não deveria ser tão difícil
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            O Problema
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            Contratar creators não deveria ser tão difícil
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {problems.map((item, i) => {
@@ -42,14 +48,14 @@ export default function Problem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="bg-surface-1 rounded-2xl border border-border p-6 shadow-sm"
+                className="bg-paper rounded-[14px] border border-ink-100 p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <Icon
                   size={28}
                   strokeWidth={1.5}
                   className="text-coral-500 mb-4"
                 />
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-ink-500 leading-relaxed">
                   {item.text}
                 </p>
               </motion.div>

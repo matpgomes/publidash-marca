@@ -78,24 +78,30 @@ export default function LiaShowcase() {
   }, [typingDone]);
 
   return (
-    <section className="py-20 md:py-28 px-6 bg-surface-1" ref={ref}>
+    <section className="py-20 md:py-24 px-6 bg-paper border-b border-ink-100" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-4"
+          className="text-center mb-4"
         >
-          Conheça a Lia. Sua copiloto de Creator Economy.
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            IA Lia
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            Conheça a Lia. Sua copiloto de Creator Economy.
+          </h2>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-center text-text-muted mb-16 max-w-2xl mx-auto"
+          className="text-center text-ink-400 mb-16 max-w-2xl mx-auto"
         >
           Inteligência artificial treinada para entender marcas, creators e o
           mercado brasileiro.
@@ -107,20 +113,20 @@ export default function LiaShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-background rounded-2xl border border-border p-6 md:p-8 mb-16 shadow-sm"
+          className="bg-cream rounded-[14px] border border-ink-100 p-6 md:p-8 mb-16 shadow-sm"
         >
           {/* Lia header */}
           <div className="flex items-center gap-2 mb-6">
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-lime-400 flex items-center justify-center">
               <Sparkles size={12} strokeWidth={1.5} className="text-white" />
             </div>
-            <span className="text-sm font-medium text-text-primary">Lia</span>
-            <span className="text-xs text-text-muted font-mono">AI Engine v2</span>
+            <span className="text-sm font-medium text-ink-900">Lia</span>
+            <span className="text-xs text-ink-400 font-mono">AI Engine v2</span>
           </div>
 
           {/* Input field */}
-          <div className="bg-surface-2 rounded-xl p-4 border border-border-subtle mb-6">
-            <p className="text-sm text-text-secondary leading-relaxed min-h-[2.5rem]">
+          <div className="bg-violet-50 rounded-[14px] p-4 border border-ink-50 mb-6">
+            <p className="text-sm text-ink-500 leading-relaxed min-h-[2.5rem]">
               {isInView ? (
                 <TypingText text={fullPrompt} onComplete={() => setTypingDone(true)} />
               ) : null}
@@ -132,7 +138,7 @@ export default function LiaShowcase() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
-                <span className="text-xs font-mono text-text-muted">
+                <span className="text-xs font-mono text-ink-400">
                   2 resultados em 0.8s
                 </span>
               </div>
@@ -143,32 +149,32 @@ export default function LiaShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.3, duration: 0.5 }}
-                  className="bg-surface-1 rounded-xl border border-border p-5"
+                  className="bg-paper rounded-[14px] border border-ink-100 p-5"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-coral-500" />
                       <div>
-                        <p className="font-medium text-text-primary">
+                        <p className="font-medium text-ink-900">
                           {result.name}
                         </p>
-                        <p className="text-xs text-text-muted">
+                        <p className="text-xs text-ink-400">
                           {result.handle}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-text-muted">Match</p>
+                      <p className="text-xs text-ink-400">Match</p>
                       <p className="font-mono text-lg font-bold text-violet-500">
                         {result.match}%
                       </p>
                     </div>
                   </div>
-                  <div className="bg-violet-50 rounded-lg p-3 border border-violet-100">
-                    <p className="text-xs text-text-muted mb-1 font-mono">
+                  <div className="bg-violet-50 rounded-[10px] p-3 border border-violet-100">
+                    <p className="text-xs text-ink-400 mb-1 font-mono">
                       Justificativa da Lia:
                     </p>
-                    <p className="text-sm text-text-secondary leading-relaxed">
+                    <p className="text-sm text-ink-500 leading-relaxed">
                       {result.justification}
                     </p>
                   </div>
@@ -196,7 +202,7 @@ export default function LiaShowcase() {
                   strokeWidth={1.5}
                   className="text-violet-500 shrink-0 mt-0.5"
                 />
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p className="text-sm text-ink-500 leading-relaxed">
                   {bullet.text}
                 </p>
               </motion.div>

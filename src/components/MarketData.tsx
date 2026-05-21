@@ -87,21 +87,21 @@ function AnimatedCounter({
 
   if (isRange) {
     return (
-      <span className="font-mono text-3xl md:text-4xl font-bold text-text-primary">
+      <span className="font-mono text-3xl md:text-4xl font-bold text-ink-900">
         4-8%
       </span>
     );
   }
 
   return (
-    <span className="font-mono text-3xl md:text-4xl font-bold text-text-primary">
+    <span className="font-mono text-3xl md:text-4xl font-bold text-ink-900">
       {prefix}
       {decimals > 0
         ? count.toFixed(decimals).replace(".", ",")
         : Math.round(count)}
       {suffix}
       {extra && (
-        <span className="text-base font-normal text-text-muted ml-1">
+        <span className="text-base font-normal text-ink-400 ml-1">
           {extra}
         </span>
       )}
@@ -114,24 +114,30 @@ export default function MarketData() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-background" ref={ref}>
+    <section className="py-20 md:py-24 px-6 bg-cream border-b border-ink-100" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-4"
+          className="text-center mb-4"
         >
-          O mercado está pedindo isso
-        </motion.h2>
+          <p className="text-xs font-sans font-medium tracking-[0.16em] uppercase text-ink-500 flex items-center justify-center gap-3 mb-6">
+            <span className="w-6 h-px bg-ink-500" />
+            Dados de Mercado
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-ink-900">
+            O mercado está pedindo isso
+          </h2>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-center text-text-secondary mb-16 max-w-2xl mx-auto"
+          className="text-center text-ink-500 mb-16 max-w-2xl mx-auto"
         >
           Nano e micro creators convertem mais, custam menos e geram conteúdo mais autêntico. A Lia sabe achar os melhores pra você.
         </motion.p>
@@ -144,7 +150,7 @@ export default function MarketData() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-surface-1 rounded-2xl border border-border p-6 shadow-sm"
+              className="bg-paper rounded-[14px] border border-ink-100 p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
               <AnimatedCounter
                 target={stat.numericTarget}
@@ -155,7 +161,7 @@ export default function MarketData() {
                 extra={stat.extra}
                 shouldAnimate={isInView}
               />
-              <p className="text-sm text-text-secondary mt-2">
+              <p className="text-sm text-ink-500 mt-2">
                 {stat.label}
               </p>
             </motion.div>
