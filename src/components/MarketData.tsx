@@ -35,7 +35,7 @@ const stats = [
     prefix: "4-",
     suffix: "%",
     decimals: 0,
-    label: "Engajamento medio nano (<10k) vs <1,5% dos grandes",
+    label: "Engajamento médio nano (<10k) vs <1,5% dos grandes",
     isRange: true,
   },
   {
@@ -44,7 +44,7 @@ const stats = [
     prefix: "",
     suffix: "%",
     decimals: 0,
-    label: "Marcas que vao aumentar investimento em 2026",
+    label: "Marcas que vão aumentar investimento em 2026",
   },
 ];
 
@@ -87,21 +87,21 @@ function AnimatedCounter({
 
   if (isRange) {
     return (
-      <span className="font-mono text-3xl md:text-4xl font-bold text-[var(--cream)]">
+      <span className="font-mono text-3xl md:text-4xl font-bold text-text-primary">
         4-8%
       </span>
     );
   }
 
   return (
-    <span className="font-mono text-3xl md:text-4xl font-bold text-[var(--cream)]">
+    <span className="font-mono text-3xl md:text-4xl font-bold text-text-primary">
       {prefix}
       {decimals > 0
         ? count.toFixed(decimals).replace(".", ",")
         : Math.round(count)}
       {suffix}
       {extra && (
-        <span className="text-base font-normal text-[var(--cream)]/50 ml-1">
+        <span className="text-base font-normal text-text-muted ml-1">
           {extra}
         </span>
       )}
@@ -114,17 +114,27 @@ export default function MarketData() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-[var(--surface-1)]/50" ref={ref}>
+    <section className="py-20 md:py-32 px-6 bg-background" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl md:text-5xl text-center text-[var(--cream)] mb-16"
+          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-4"
         >
-          O mercado esta pedindo isso
+          O mercado está pedindo isso
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-center text-text-secondary mb-16 max-w-2xl mx-auto"
+        >
+          Nano e micro creators convertem mais, custam menos e geram conteúdo mais autêntico. A Lia sabe achar os melhores pra você.
+        </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {stats.map((stat, i) => (
@@ -134,9 +144,7 @@ export default function MarketData() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`bg-[var(--ink-1000)] rounded-xl border border-white/[0.06] p-6 ${
-                i >= 3 ? "sm:col-span-1" : ""
-              }`}
+              className="bg-surface-1 rounded-2xl border border-border p-6 shadow-sm"
             >
               <AnimatedCounter
                 target={stat.numericTarget}
@@ -147,7 +155,7 @@ export default function MarketData() {
                 extra={stat.extra}
                 shouldAnimate={isInView}
               />
-              <p className="text-sm text-[var(--cream)]/50 mt-2">
+              <p className="text-sm text-text-secondary mt-2">
                 {stat.label}
               </p>
             </motion.div>

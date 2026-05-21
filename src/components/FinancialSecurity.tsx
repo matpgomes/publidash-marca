@@ -11,33 +11,33 @@ import {
 } from "lucide-react";
 
 const escrowSteps = [
-  { icon: CreditCard, label: "Voce paga" },
-  { icon: Lock, label: "Retido no gateway (BACEN)" },
+  { icon: CreditCard, label: "Você paga" },
+  { icon: Lock, label: "Retido no gateway (Asaas/BACEN)" },
   { icon: Package, label: "Creator entrega" },
-  { icon: CheckCircle2, label: "Voce aprova" },
+  { icon: CheckCircle2, label: "Você aprova" },
   { icon: Banknote, label: "Creator recebe via Pix" },
   { icon: FileText, label: "NF-e gerada" },
 ];
 
 export default function FinancialSecurity() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-[var(--surface-1)]/50">
+    <section className="py-20 md:py-28 px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl md:text-5xl text-center text-[var(--cream)] mb-16"
+          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-16"
         >
-          Seu dinheiro so sai quando voce aprova
+          Seu dinheiro só sai quando você aprova
         </motion.h2>
 
         {/* Escrow timeline - Desktop */}
         <div className="hidden md:block mb-16">
           <div className="flex items-start justify-between relative">
             {/* Connector */}
-            <div className="absolute top-6 left-[8%] right-[8%] h-px bg-white/[0.08]" />
+            <div className="absolute top-6 left-[8%] right-[8%] h-px bg-border" />
 
             {escrowSteps.map((step, i) => {
               const Icon = step.icon;
@@ -50,14 +50,14 @@ export default function FinancialSecurity() {
                   transition={{ delay: i * 0.15 }}
                   className="flex flex-col items-center text-center relative z-10 w-1/6"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[var(--ink-1000)] border border-white/[0.08] flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 rounded-full bg-surface-1 border border-border flex items-center justify-center mb-3 shadow-sm">
                     <Icon
                       size={20}
                       strokeWidth={1.5}
-                      className="text-[var(--violet-500)]"
+                      className="text-violet-500"
                     />
                   </div>
-                  <p className="text-xs text-[var(--cream)]/70 leading-snug max-w-[100px]">
+                  <p className="text-xs text-text-secondary leading-snug max-w-[100px]">
                     {step.label}
                   </p>
                 </motion.div>
@@ -80,18 +80,18 @@ export default function FinancialSecurity() {
                 className="flex items-center gap-3"
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[var(--ink-1000)] border border-white/[0.08] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-surface-1 border border-border flex items-center justify-center shrink-0 shadow-sm">
                     <Icon
                       size={18}
                       strokeWidth={1.5}
-                      className="text-[var(--violet-500)]"
+                      className="text-violet-500"
                     />
                   </div>
                   {i < escrowSteps.length - 1 && (
-                    <div className="w-px h-4 bg-white/[0.06]" />
+                    <div className="w-px h-4 bg-border" />
                   )}
                 </div>
-                <p className="text-sm text-[var(--cream)]/70">{step.label}</p>
+                <p className="text-sm text-text-secondary">{step.label}</p>
               </motion.div>
             );
           })}
@@ -103,10 +103,10 @@ export default function FinancialSecurity() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[var(--ink-1000)] rounded-xl border border-white/[0.06] p-5"
+            className="bg-surface-1 rounded-2xl border border-border p-5 shadow-sm"
           >
-            <p className="text-sm text-[var(--cream)]/70 leading-relaxed">
-              Se voce nao aprovar nem reprovar em 7 dias, o sistema aprova
+            <p className="text-sm text-text-secondary leading-relaxed">
+              Se você não aprovar nem reprovar em 7 dias, o sistema aprova
               automaticamente.
             </p>
           </motion.div>
@@ -115,11 +115,11 @@ export default function FinancialSecurity() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="bg-[var(--ink-1000)] rounded-xl border border-white/[0.06] p-5"
+            className="bg-surface-1 rounded-2xl border border-border p-5 shadow-sm"
           >
-            <p className="text-sm text-[var(--cream)]/70 leading-relaxed">
-              Se houver problema, qualquer parte pode abrir disputa. Mediacao
-              humana com resolucao em ate 5 dias uteis.
+            <p className="text-sm text-text-secondary leading-relaxed">
+              Se houver problema, qualquer parte pode abrir disputa. Mediação
+              humana com resolução em até 5 dias úteis.
             </p>
           </motion.div>
         </div>
@@ -130,15 +130,15 @@ export default function FinancialSecurity() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="bg-gradient-to-r from-[var(--violet-500)]/10 to-[var(--lime-300)]/5 rounded-xl border border-[var(--violet-500)]/20 p-6 text-center"
+          className="bg-violet-50 rounded-2xl border border-violet-100 p-6 text-center"
         >
-          <p className="text-sm text-[var(--cream)]/80 leading-relaxed max-w-2xl mx-auto">
-            Voce nao paga a Publidash. A gente fica com{" "}
-            <span className="font-mono font-bold text-[var(--lime-300)]">
+          <p className="text-sm text-text-secondary leading-relaxed max-w-2xl mx-auto">
+            Você não paga a Publidash. A gente fica com{" "}
+            <span className="font-mono font-bold text-violet-500">
               10%
             </span>{" "}
-            do valor do acordo — descontado do creator. Pra voce, o preco e o
-            que voce combinou.
+            do valor do acordo — descontado do creator. Pra você, o preço é o
+            que você combinou.
           </p>
         </motion.div>
       </div>

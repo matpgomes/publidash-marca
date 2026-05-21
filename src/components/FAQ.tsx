@@ -7,27 +7,27 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Quanto custa?",
-    a: "Zero pra marca. A Publidash cobra 10% do valor do acordo, descontado do creator. O preco que voce combina e o preco que voce paga.",
+    a: "Zero pra marca. A Publidash cobra 10% do valor do acordo, descontado do creator. O preço que você combina é o preço que você paga.",
   },
   {
     q: "Preciso de time dedicado?",
-    a: "Nao. A plataforma e self-service. Crie uma campanha em 60 segundos, a Lia faz o resto. Voce so decide quem aprovar.",
+    a: "Não. A plataforma é self-service. Crie uma campanha em 60 segundos, a Lia faz o resto. Você só decide quem aprovar.",
   },
   {
-    q: "Como sei que os creators sao confiaveis?",
-    a: "Cada creator tem score de reputacao baseado em entregas reais: taxa de aprovacao, pontualidade, avaliacoes de marcas anteriores. A Lia prioriza creators com historico comprovado.",
+    q: "Como sei que os creators são confiáveis?",
+    a: "Cada creator tem score de reputação baseado em entregas reais: taxa de aprovação, pontualidade, avaliações de marcas anteriores. A Lia prioriza creators com histórico comprovado.",
   },
   {
-    q: "E se o creator nao entregar?",
-    a: "Seu dinheiro fica retido ate voce aprovar. Se nao entregar, voce abre disputa e um mediador humano resolve em ate 5 dias uteis.",
+    q: "E se o creator não entregar?",
+    a: "Seu dinheiro fica retido até você aprovar. Se não entregar, você abre disputa e um mediador humano resolve em até 5 dias úteis.",
   },
   {
-    q: "Posso usar pra UGC e influencia?",
-    a: "Sim. Reels, Stories, posts, videos longos, UGC pra ads, lives — a plataforma cobre todos os formatos.",
+    q: "Posso usar pra UGC e influência?",
+    a: "Sim. Reels, Stories, posts, vídeos longos, UGC pra ads, lives — a plataforma cobre todos os formatos.",
   },
   {
-    q: "Ja tenho um creator em mente. Posso usar so pro pagamento?",
-    a: "Sim. Convide direto e use a Publidash so pra contrato + pagamento garantido + NF. Taxa reduzida.",
+    q: "Já tenho um creator em mente. Posso usar só pro pagamento?",
+    a: "Sim. Convide direto e use a Publidash só pra contrato + pagamento garantido + NF. Taxa reduzida.",
   },
 ];
 
@@ -40,19 +40,19 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className="border-b border-white/[0.06]"
+      className="border-b border-border"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="text-base font-medium text-[var(--cream)] pr-4 group-hover:text-[var(--violet-500)] transition-colors">
+        <span className="text-base font-medium text-text-primary pr-4 group-hover:text-violet-500 transition-colors">
           {q}
         </span>
         <ChevronDown
           size={18}
           strokeWidth={1.5}
-          className={`text-[var(--cream)]/40 shrink-0 transition-transform duration-300 ${
+          className={`text-text-muted shrink-0 transition-transform duration-300 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -66,7 +66,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-[var(--cream)]/60 leading-relaxed pr-8">
+            <p className="pb-5 text-sm text-text-secondary leading-relaxed pr-8">
               {a}
             </p>
           </motion.div>
@@ -78,14 +78,14 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQ() {
   return (
-    <section className="py-20 md:py-32 px-6">
+    <section className="py-20 md:py-32 px-6 bg-surface-1">
       <div className="max-w-2xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl md:text-5xl text-center text-[var(--cream)] mb-12"
+          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-12"
         >
           Perguntas frequentes
         </motion.h2>

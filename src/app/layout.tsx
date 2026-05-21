@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Publidash — Encontre o creator certo em segundos",
+  title: "Publidash para Marcas — Encontre Creators com IA em Segundos",
   description:
-    "Marketplace de Creator Economy com IA matchmaking, pagamento garantido e NF-e automatica. Para marcas que querem resultados, nao burocracia.",
+    "Descreva o que precisa e a IA Lia encontra os creators certos. Contrato automático, pagamento protegido e NF-e. Sem agência, sem burocracia.",
   openGraph: {
-    title: "Publidash — Encontre o creator certo em segundos",
+    title: "Publidash para Marcas — Encontre Creators com IA em Segundos",
     description:
-      "Marketplace de Creator Economy com IA matchmaking, pagamento garantido e NF-e automatica.",
+      "Descreva o que precisa e a IA Lia encontra os creators certos. Contrato automático, pagamento protegido e NF-e. Sem agência, sem burocracia.",
     type: "website",
   },
 };
@@ -26,7 +26,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="font-sans antialiased bg-background text-text-primary min-h-full flex flex-col">
+        {children}
+      </body>
     </html>
   );
 }

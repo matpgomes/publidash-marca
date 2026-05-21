@@ -1,70 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --cream: #FAF7F2;
-  --ink-1000: #0B0A14;
-  --violet-500: #6E56F8;
-  --violet-600: #5A42E0;
-  --violet-900: #1E1B4B;
-  --lime-300: #D4FF3D;
-  --coral-500: #FF7A45;
-  --surface-1: #1A1A1A;
-  --surface-2: #2A2A2A;
-}
-
-@theme inline {
-  --color-cream: var(--cream);
-  --color-ink: var(--ink-1000);
-  --color-violet: var(--violet-500);
-  --color-violet-600: var(--violet-600);
-  --color-violet-900: var(--violet-900);
-  --color-lime: var(--lime-300);
-  --color-coral: var(--coral-500);
-  --color-surface-1: var(--surface-1);
-  --color-surface-2: var(--surface-2);
+@theme {
+  --font-serif: 'Instrument Serif', serif;
   --font-sans: 'Geist', sans-serif;
   --font-mono: 'Geist Mono', monospace;
-  --font-display: 'Instrument Serif', serif;
+  --color-background: #FAFAFA;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F5F3FF;
+  --color-surface-3: #F0EDFF;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #4A4A68;
+  --color-text-muted: #8888A0;
+  --color-violet-50: #F5F3FF;
+  --color-violet-100: #EDE9FE;
+  --color-violet-500: #7C3AED;
+  --color-violet-600: #6D28D9;
+  --color-violet-900: #1E1B4B;
+  --color-lime-400: #A3E635;
+  --color-lime-50: #F7FEE7;
+  --color-coral-500: #F97316;
+  --color-border: #E5E5E5;
+  --color-border-subtle: #F0F0F0;
 }
 
-* {
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--ink-1000);
-  color: var(--cream);
-  font-family: 'Geist', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
 }
 
-.font-display {
-  font-family: 'Instrument Serif', serif;
+::selection {
+  background-color: var(--color-violet-100);
+  color: var(--color-violet-900);
 }
 
-.font-mono {
-  font-family: 'Geist Mono', monospace;
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--ink-1000);
+  background: var(--color-background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-2);
-  border-radius: 3px;
+  background: var(--color-border);
+  border-radius: 4px;
 }
-
-/* Counter animation helper */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-violet-500);
 }

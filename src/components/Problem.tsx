@@ -6,7 +6,7 @@ import { Search, MessageCircle, AlertTriangle } from "lucide-react";
 const problems = [
   {
     icon: Search,
-    text: "Voce perde horas scrollando perfis, pedindo midiakit, comparando numeros que podem ser falsos.",
+    text: "Você perde horas scrollando perfis, pedindo midiakit, comparando números que podem ser falsos.",
   },
   {
     icon: MessageCircle,
@@ -14,22 +14,22 @@ const problems = [
   },
   {
     icon: AlertTriangle,
-    text: "Paga adiantado e reza. Se der errado, nao tem a quem recorrer.",
+    text: "Paga adiantado e reza. Se der errado, não tem a quem recorrer.",
   },
 ];
 
 export default function Problem() {
   return (
-    <section className="py-20 md:py-32 px-6">
+    <section className="py-20 md:py-28 px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl md:text-5xl text-center text-[var(--cream)] mb-16"
+          className="font-serif text-3xl md:text-5xl text-center text-text-primary mb-16"
         >
-          Contratar creators nao deveria ser tao dificil
+          Contratar creators não deveria ser tão difícil
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -42,14 +42,14 @@ export default function Problem() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="bg-[var(--surface-1)] rounded-xl border border-white/[0.06] p-6"
+                className="bg-surface-1 rounded-2xl border border-border p-6 shadow-sm"
               >
                 <Icon
                   size={28}
                   strokeWidth={1.5}
-                  className="text-[var(--coral-500)] mb-4"
+                  className="text-coral-500 mb-4"
                 />
-                <p className="text-[var(--cream)]/80 leading-relaxed">
+                <p className="text-text-secondary leading-relaxed">
                   {item.text}
                 </p>
               </motion.div>
@@ -62,7 +62,7 @@ export default function Problem() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12 text-lg text-[var(--violet-500)] font-medium"
+          className="text-center mt-12 text-lg text-violet-500 font-medium"
         >
           E se tivesse um jeito mais inteligente?
         </motion.p>
